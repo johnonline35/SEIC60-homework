@@ -1,3 +1,5 @@
+//Excercise 1
+
 const calculate = function(num1, num2, operation) {
     if (operation === `add`) {
         return num1 + num2;
@@ -21,4 +23,27 @@ console.log(calculate(4, 2, `sub`))
 console.log(calculate(4, 2, `multi`))
 console.log(calculate(4, 2, `div`))
 console.log(calculate(4, 2, `exp`))
+
+//Excercise 2
+
+const helloIn = function(language) {
+    if (language === `English`) {
+        return `Hello`;
+    } 
+        else if (language === `German`) {
+            return `Hallo`;
+        }
+        else if (language === `Portugese`) {
+            return `Ola`;
+        }
+        else if (language === `French`) {
+            return `Bonjour`;
+        }
+        else if (language === `Dog`) {
+            return `Woof`;
+        }
+}
+console.log(helloIn(`Dog`));
+
+//Excercise 3
 

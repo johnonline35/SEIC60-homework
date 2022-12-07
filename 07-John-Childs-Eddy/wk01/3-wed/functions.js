@@ -47,3 +47,21 @@ console.log(helloIn(`Dog`));
 
 //Excercise 3
 
+const eachYear = function(year) {
+    for (let year = 1922; year < 2023; year++) {
+    if (leapYears(year))
+        console.log(year);
+}
+}
+
+const leapYears = function(year) {
+    if (year % 4 === 0 && year % 100 !== 0) {
+        return year;
+    }
+        else if (year % 100 === 0 && year % 400 === 0) {
+            return year;
+        }
+}
+
+eachYear()
+

@@ -1,4 +1,4 @@
-//Excercise 1
+//Excercise (1)
 
 const calculate = function(num1, num2, operation) {
     if (operation === `add`) {
@@ -24,7 +24,7 @@ console.log(calculate(4, 2, `multi`))
 console.log(calculate(4, 2, `div`))
 console.log(calculate(4, 2, `exp`))
 
-//Excercise 2
+//Excercise (2)
 
 const helloIn = function(language) {
     if (language === `English`) {
@@ -45,7 +45,7 @@ const helloIn = function(language) {
 }
 console.log(helloIn(`Dog`));
 
-//Excercise 3
+//Excercise (3)
 
 const eachYear = function(year) {
     for (let year = 1922; year < 2023; year++) {

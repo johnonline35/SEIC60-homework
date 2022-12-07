@@ -47,6 +47,8 @@ console.log(helloIn(`Dog`));
 
 //Excercise (3)
 
+
+
 const eachYear = function(year) {
     for (let year = 1922; year < 2023; year++) {
     if (leapYears(year))

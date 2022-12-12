@@ -5,9 +5,15 @@ body {
 	width: 100%;
 	height: auto;
 	background-size: cover;
-    padding: 150px 0;
+    padding:  20px 0 70px 0 ;
   }
-  div.A {
+nav {
+    font-family: 'Dancing Script', cursive;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+  div.white-box {
     font-family: 'Dancing Script', cursive;
     opacity: 0.8;
     margin: auto;
@@ -18,10 +24,11 @@ body {
     height: 800px;
     padding: 50px 50px;
 }
-div.A.h1{
+div.white-box.h1{
     font-size: 70px;
+    right: 10px;
 }
-div.B {
+div .inside-white-box {
     opacity: 1;
     background-color: #FFFFFF;
     color: black;
@@ -29,12 +36,17 @@ div.B {
     height: 80%;
     margin: auto;
 }
+div .smaller-headings{
+    font-weight: bold;
+    font-size: 20px;
+}
 div.gallery {
     display: inline-block;
     margin: 5px;
     border: 1px solid #ccc;
     flex: left;
     width: 180px;
+    align-self: center;
   }
   div.gallery:hover {
     border: 1px solid #777;

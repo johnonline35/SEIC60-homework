@@ -7,11 +7,11 @@
     <title>Google Books</title>
 </head>
 <body>
-    <h1>Find book</h1>
-        <form id="search">
+    <h1>Find book cover:</h1>
+        <form onsubmit="titleSearch(this); return false;">
             <label>
                 Book title:
-                <input type="search" id="title" placeholder="Jaws" autofocus>
+                <input placeholder="Jaws" id="query" autofocus>
             </label>
          <button type="submit">Search</button>
         </form>

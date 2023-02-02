@@ -1,7 +1,17 @@
+const state = {
+    nextPage: 1,
+    lastPageReached: false,
+    requestInProgress: false
+};
+
 const searchFlickr = function (keywords) {
+    if (state.lastPageReached || state.requestInProgress) return;
+
     console.log('Searching for', keywords);
 
     const flickrURL = 'https://api.flickr.com/services/rest';
+
+    state.requestInProgress = true;
 
     $.getJSON(flickrURL, {
         method: 'flickr.photos.search',
@@ -9,9 +19,13 @@ const searchFlickr = function (keywords) {
         text: keywords,
         format: 'json',
         nojsoncallback: 1,
-        per_page: 500
+        page: state.nextPage++
     }).done(showImages).done(function (info) {
         console.log(info);
+        state.requestInProgress = false;
+        if (info.photos.page >= info.photos.pages) {
+            state.lastPageReached = true;
+        }
     });
 };
 
@@ -41,13 +55,17 @@ $(document).ready(function () {
     $('#search').on('submit', function (event) {
         event.preventDefault();
 
+        state.nextPage = 1; // reset to the beginning
+        state.lastPageReached = false;
+        $('#images').empty()
+
         const searchTerms = $('#query').val();
         searchFlickr(searchTerms);
     });
 
-    $(window).on('scroll', _.throttle(function(), 100) {
-        const scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
-        if (scrollBottom < 500 ) {
+    $(window).on('scroll', function () {
+        const scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+        if (scrollBottom < 500) { // adjust this value to whatever works for you
             const searchTerms = $('#query').val();
             searchFlickr(searchTerms);
         }

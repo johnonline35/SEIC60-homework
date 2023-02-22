@@ -1,7 +1,9 @@
 const express = require("express");
 const ejs = require("ejs");
 const _ = require("underscore");
-const axios = require("axios");
+// const axios = require("axios");
+const yahooStockAPI = require("yahoo-stock-api").default;
+const yahoo = new yahooStockAPI();
 
 // Basic setup
 const server = express();
@@ -15,11 +17,10 @@ server.get("/home", (req, res) => {
 
 // Talk to an API
 server.get("/answer", (req, res) => {
-  axios.get("http://numbersapi.com/random/trivia").then((response) => {
-    res.send(req.query.ticker);
+  yahoo.getSymbol({ symbol: req.query.ticker }).then((response) => {
     res.render("answer.ejs", {
       ticker: req.query.ticker,
-      price: "No comment",
+      price: response.bid,
     });
   });
 });
@@ -30,3 +31,7 @@ server.get("/answer", (req, res) => {
 server.listen(PORT, () =>
   console.log(`Now serving on http://localhost:${PORT}`)
 );
+
+// res.send(req.query.ticker);
+// .then(console.log);
+//   axios.get("http://numbersapi.com/random/trivia")
